@@ -1,6 +1,6 @@
 package Week1;
 
-import Collection.Stack;
+import org.hofman.collection.Stack;
 
 /**
  * Created with IntelliJ IDEA.

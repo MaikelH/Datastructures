@@ -1,6 +1,4 @@
-package Collection;
-
-import Week1.Student;
+package org.hofman.collection;
 
 /**
  * Created with IntelliJ IDEA.
