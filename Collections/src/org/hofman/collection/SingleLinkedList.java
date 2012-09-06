@@ -8,80 +8,44 @@ package org.hofman.collection;
  */
 
 public class SingleLinkedList<T> implements IList<T> {
-    private Node<T> _firstElement;
-    private int _size;
-
-    private class Node<T> {
-        private T data;
-        private Node<T> next;
-
-        public Node(T Data) {
-            data = Data;
-        }
-
-        public T getData() {
-            return data;
-        }
-
-        public void setData(T data) {
-            this.data = data;
-        }
-
-        public Node<T> getNext() {
-            return next;
-        }
-
-        public void setNext(Node<T> next) {
-            this.next = next;
-        }
-    }
-
-    public SingleLinkedList() {
-        _size = 0;
-        _firstElement = null;
-    }
-
-    public SingleLinkedList(T Object) {
-        this();
-        _firstElement = new Node<T>(Object);
-        _size++;
-    }
 
     @Override
     public void add(T Object) {
-        Node<T> node = new Node<T>(Object);
-        _firstElement.setNext(node);
-        _size++;
+        //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override
-    public void add(T Object, int Position) {
-        int index = 0;
-
-
+    public void add(T Object, int Index) {
+        //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override
     public boolean remove(T Object) {
-        if(_firstElement != null)
-        {
-            Node<T> checkElement = _firstElement;
+        return false;  //To change body of implemented methods use File | Settings | File Templates.
+    }
 
-        }
-        return false;
+    @Override
+    public boolean remove(int Index) {
+        return false;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override
     public int Size() {
-        return _size;
+        return 0;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override
-    public T get(int Position) {
-        if(Position > _size)
-        {
-            throw new IndexOutOfBoundsException();
-        }
-        return _firstElement.getData();
+    public T head() {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public T tail() {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public T get(int Position) throws IndexOutOfBoundsException {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 }

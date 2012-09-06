@@ -8,8 +8,11 @@ package org.hofman.collection;
  */
 public interface IList<T> {
     public void add(T Object);
-    public void add(T Object, int Position);
+    public void add(T Object, int Index);
     public boolean remove(T Object);
+    public boolean remove(int Index);
     public int Size();
+    public T head();
+    public T tail();
     public T get(int Position) throws IndexOutOfBoundsException;
 }
