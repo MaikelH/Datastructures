@@ -7,15 +7,81 @@ package org.hofman.collection;
  * Time: 11:06
  */
 public class DoubleLinkedList<T> implements IList<T> {
+    private Node<T> startNode;
+    private Node<T> endNode;
+    private int size;
+
+    private class Node<T> {
+        private T data;
+        private Node<T> next;
+        private Node<T> previous;
+
+        public Node(T Data) {
+            data = Data;
+        }
+
+        public Node<T> getPrevious() {
+            return previous;
+        }
+
+        public void setPrevious(Node<T> previous) {
+            this.previous = previous;
+        }
+
+        public T getData() {
+            return data;
+        }
+
+        public void setData(T data) {
+            this.data = data;
+        }
+
+        public Node<T> getNext() {
+            return next;
+        }
+
+        public void setNext(Node<T> next) {
+            this.next = next;
+        }
+    }
+
+    public void DoubleLinkedList()
+    {
+        startNode = null;
+        endNode = null;
+        size = 0;
+    }
 
     @Override
     public void add(T Object) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        Node<T> tempNode = new Node<T>(Object);
+
+        // If size == 0, no objects are inserted yet.
+        if(startNode == null)
+        {
+            startNode = tempNode;
+            endNode = tempNode;
+            tempNode.setNext(null);
+            tempNode.setPrevious(null);
+        }
+        else
+        {
+            endNode.setNext(tempNode);
+            tempNode.setPrevious(endNode);
+            endNode = tempNode;
+        }
+
+        size++;
     }
 
     @Override
     public void add(T Object, int Index) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        if(Index > size + 1)
+        {
+            throw new IndexOutOfBoundsException();
+        }
+
+
     }
 
     @Override

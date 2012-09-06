@@ -6,11 +6,20 @@ package org.hofman.collection;
  * Date: 3-9-12
  * Time: 9:42
  */
+
+/**
+ * Stack class represents an Last in First out collection.
+ * @param <T> Java object
+ */
 public class Stack<T> {
 
     private Node<T> startElement;
     private int size;
 
+    /**
+     * This represents a node in singlelinked list
+     * @param <T> Object
+     */
     private class Node<T> {
         private T data;
         private Node<T> next;
@@ -36,12 +45,19 @@ public class Stack<T> {
         }
     }
 
+    /**
+     * Creates a new stack with zero elements.
+     */
     public Stack()
     {
         startElement = null;
         size = 0;
     }
 
+    /**
+     * Pushes the object on the stack.
+     * @param object
+     */
     public void push(T object)
     {
         Node<T> node = new Node<T>(object);
@@ -51,6 +67,10 @@ public class Stack<T> {
         size++;
     }
 
+    /**
+     * Pops the topmost element of the stock.
+     * @return Topmost element in the stack
+     */
     public T pop()
     {
         // Store first node in temp and retrieve new node
@@ -83,6 +103,10 @@ public class Stack<T> {
         return false;
     }
 
+    /**
+     * Returns the string representation of all the objects in the stack.
+     * @return
+     */
     public String printStack()
     {
         StringBuilder builder = new StringBuilder();
