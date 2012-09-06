@@ -122,6 +122,11 @@ public class DoubleLinkedList<T> implements IList<T> {
         return false;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
+    private void remove(Node<T> node)
+    {
+
+    }
+
     @Override
     public int Size() {
         return 0;  //To change body of implemented methods use File | Settings | File Templates.
