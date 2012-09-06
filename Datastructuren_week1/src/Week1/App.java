@@ -40,6 +40,7 @@ public class App {
        stack.push(students[1]);
        stack.push(students[2]);
        stack.push(students[6]);
+       stack.push(students[7]);
 
        System.out.print(stack.printStack());
 

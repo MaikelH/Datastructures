@@ -1,4 +1,4 @@
-package Collection;
+package org.hofman.collection;
 
 /**
  * Created with IntelliJ IDEA.
