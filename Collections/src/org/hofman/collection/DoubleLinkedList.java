@@ -76,12 +76,40 @@ public class DoubleLinkedList<T> implements IList<T> {
 
     @Override
     public void add(T Object, int Index) {
-        if(Index > size + 1)
+        if(Index > size)
         {
             throw new IndexOutOfBoundsException();
         }
 
+        int indexNumber = 0;
+        Node<T> tempNode = startNode;
 
+        while(indexNumber != Index - 1)
+        {
+            tempNode = tempNode.getNext();
+            indexNumber++;
+        }
+
+        InsertAfter(tempNode, new Node<T>(Object));
+    }
+
+    private void InsertAfter(Node<T> node, Node<T> newNode)
+    {
+        newNode.setPrevious(node.getPrevious());
+        newNode.setNext(node.getNext());
+
+        if(node.getNext() == null)
+        {
+            endNode = newNode;
+        }
+        else
+        {
+            node.getNext().setPrevious(newNode);
+        }
+
+        node.next = newNode;
+
+        size++;
     }
 
     @Override
@@ -112,5 +140,26 @@ public class DoubleLinkedList<T> implements IList<T> {
     @Override
     public T get(int Position) throws IndexOutOfBoundsException {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    /**
+     * Returns the string representation of all the objects in the stack.
+     * @return
+     */
+    @Override
+    public String toString()
+    {
+        StringBuilder builder = new StringBuilder();
+
+        Node<T> tempElement = startNode;
+
+        while(tempElement != null)
+        {
+            builder.append(tempElement.getData().toString());
+            builder.append("\n");
+            tempElement = tempElement.getNext();
+        }
+
+        return builder.toString();
     }
 }

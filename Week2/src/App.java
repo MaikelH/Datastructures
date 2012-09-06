@@ -27,5 +27,11 @@ public class App {
         list.add(students[1]);
         list.add(students[2]);
         list.add(students[4]);
+
+        System.out.println(list.toString() + "\n");
+
+        list.add(students[7], 2);
+
+        System.out.println(list.toString());
     }
 }
