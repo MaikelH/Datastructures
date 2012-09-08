@@ -18,12 +18,12 @@ public class App {
 
        students[0] = new Student(8585854,"Maikel", 23, Geslacht.MAN);
        students[1] = new Student(1232131,"Piet", 24, Geslacht.MAN);
-       students[2] = new Student(1233209,"Marie", 21, Geslacht.VROUW);
-       students[3] = new Student(1232132,"Heleen", 19, Geslacht.VROUW);
-       students[4] = new Student(1287843,"Jan", 20, Geslacht.MAN);
-       students[5] = new Student(1787637,"Petra", 21, Geslacht.VROUW);
+       students[2] = new Student(6233209,"Marie", 21, Geslacht.VROUW);
+       students[3] = new Student(3232132,"Heleen", 19, Geslacht.VROUW);
+       students[4] = new Student(7287843,"Jan", 20, Geslacht.MAN);
+       students[5] = new Student(9787637,"Petra", 21, Geslacht.VROUW);
        students[6] = new Student(1827374,"Maarten", 21, Geslacht.MAN);
-       students[7] = new Student(1239399,"Lisa", 21, Geslacht.MAN);
+       students[7] = new Student(1239399,"Lisa", 21, Geslacht.VROUW);
 
        stack.push(students[5]);
        stack.push(students[4]);
