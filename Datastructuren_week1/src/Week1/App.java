@@ -58,7 +58,7 @@ public class App {
            System.out.println(students[1].getNaam() + " NOT found in stack.");
        }
 
-       System.out.println("\nPrint only woman in the Stack.");
+       System.out.println("\nPrint only women in the Stack.");
 
        System.out.println(stack.printStack(new Predicate<Student>() {
            @Override
