@@ -7,6 +7,8 @@ package org.hofman.collection;
  * Time: 9:42
  */
 
+import org.hofman.base.Predicate;
+
 /**
  * Stack class represents an Last in First out collection.
  * @param <T> Java object
@@ -105,9 +107,26 @@ public class Stack<T> {
 
     /**
      * Returns the string representation of all the objects in the stack.
-     * @return
+     * @return String representation of the elements
      */
     public String printStack()
+    {
+        Predicate<T> predicate = new Predicate<T>() {
+            @Override
+            public boolean apply(T object) {
+                return true;
+            }
+        };
+
+        return this.printStack(predicate);
+    }
+
+    /**
+     * Prints only the elements that satisfies the given predicate {@code predicate}
+     * @param predicate
+     * @return String representation of the elements
+     */
+    public String printStack(Predicate<T> predicate)
     {
         StringBuilder builder = new StringBuilder();
 
@@ -115,8 +134,11 @@ public class Stack<T> {
 
         while(tempElement != null)
         {
-            builder.append(tempElement.getData().toString());
-            builder.append("\n");
+            if(predicate.apply(tempElement.getData()))
+            {
+                builder.append(tempElement.getData().toString());
+                builder.append("\n");
+            }
             tempElement = tempElement.getNext();
         }
 
