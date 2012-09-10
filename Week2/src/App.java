@@ -1,5 +1,5 @@
-import org.hofman.collection.DoubleLinkedList;
 import org.hofman.collection.IList;
+import org.hofman.collection.LinkedList;
 
 /**
  * Created with IntelliJ IDEA.
@@ -10,7 +10,7 @@ import org.hofman.collection.IList;
 public class App {
 
     public static void main(String[] args) {
-        IList<Student> list = new DoubleLinkedList<Student>();
+        IList<Student> list = new LinkedList<Student>();
 
         Student students[] = new Student[8];
 

@@ -6,7 +6,7 @@ package org.hofman.collection;
  * Date: 6-9-12
  * Time: 11:06
  */
-public class DoubleLinkedList<T> implements IList<T> {
+public class LinkedList<T> implements IList<T> {
     private Node<T> startNode;
     private Node<T> endNode;
     private int size;

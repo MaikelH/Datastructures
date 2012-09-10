@@ -90,17 +90,13 @@ public class Stack<T> {
      */
     public boolean peek(T object)
     {
-        Node<T> tempElement = startElement;
-
-        do
-        {
+       for(Node<T> tempElement = startElement; tempElement.getNext() != null; tempElement = tempElement.getNext() )
+       {
             if(object.equals(tempElement.getData()))
             {
                 return true;
             }
-
-            tempElement = tempElement.getNext();
-        } while(tempElement != null);
+        }
 
         return false;
     }
@@ -130,16 +126,13 @@ public class Stack<T> {
     {
         StringBuilder builder = new StringBuilder();
 
-        Node<T> tempElement = startElement;
-
-        while(tempElement != null)
+        for(Node<T> tempElement = startElement; tempElement != null; tempElement = tempElement.getNext())
         {
             if(predicate.apply(tempElement.getData()))
             {
                 builder.append(tempElement.getData().toString());
                 builder.append("\n");
             }
-            tempElement = tempElement.getNext();
         }
 
         return builder.toString();
