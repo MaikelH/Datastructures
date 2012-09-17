@@ -45,13 +45,21 @@ public class LinkedList<T> implements IList<T> {
         }
     }
 
-    public void DoubleLinkedList()
+    /**
+     *
+     * Creates a new LinkedList
+     */
+    public void LinkedList()
     {
         startNode = null;
         endNode = null;
         size = 0;
     }
 
+    /**
+     * Insert object at the end of list.
+     * @param Object
+     */
     @Override
     public void add(T Object) {
         Node<T> tempNode = new Node<T>(Object);
@@ -74,6 +82,11 @@ public class LinkedList<T> implements IList<T> {
         size++;
     }
 
+    /**
+     * Insert object at specified index. If index is larger then size, Exception is thrown.
+     * @param Object
+     * @param Index
+     */
     @Override
     public void add(T Object, int Index) {
         if(Index > size)
@@ -122,29 +135,37 @@ public class LinkedList<T> implements IList<T> {
         return false;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
-    private void remove(Node<T> node)
-    {
-
-    }
-
     @Override
     public int Size() {
-        return 0;  //To change body of implemented methods use File | Settings | File Templates.
+        return size;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override
     public T head() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return startNode.getData();
     }
 
     @Override
     public T tail() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return endNode.getData();
     }
 
     @Override
     public T get(int Position) throws IndexOutOfBoundsException {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+
+        if(Position >= size || Position < 0)
+        {
+            throw new IndexOutOfBoundsException();
+        }
+
+        Node<T> tempElement = startNode;
+
+        for(int i = 0; i != Position; i++)
+        {
+            tempElement = tempElement.getNext();
+        }
+
+        return tempElement.getData();
     }
 
     /**
@@ -156,13 +177,10 @@ public class LinkedList<T> implements IList<T> {
     {
         StringBuilder builder = new StringBuilder();
 
-        Node<T> tempElement = startNode;
-
-        while(tempElement != null)
+        for(Node<T> tempElement = startNode; tempElement != null; tempElement = tempElement.getNext())
         {
             builder.append(tempElement.getData().toString());
             builder.append("\n");
-            tempElement = tempElement.getNext();
         }
 
         return builder.toString();

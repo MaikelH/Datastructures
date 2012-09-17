@@ -6,5 +6,5 @@ package org.hofman.collection;
  * Date: 6-9-12
  * Time: 11:04
  */
-public class Queue {
+public class Queue<T> {
 }
