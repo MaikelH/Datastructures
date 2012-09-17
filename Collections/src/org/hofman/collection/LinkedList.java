@@ -58,7 +58,7 @@ public class LinkedList<T> implements IList<T> {
 
     /**
      * Insert object at the end of list.
-     * @param Object
+     * @param Object Last object in the list
      */
     @Override
     public void add(T Object) {
@@ -127,12 +127,65 @@ public class LinkedList<T> implements IList<T> {
 
     @Override
     public boolean remove(T Object) {
-        return false;  //To change body of implemented methods use File | Settings | File Templates.
+
+        for(Node<T> tempNode = startNode; tempNode != null; tempNode = tempNode.getNext())
+        {
+            if(tempNode.getData().equals(Object))
+            {
+                destroy(tempNode);
+                return true;
+            }
+        }
+
+        return false;
     }
+
 
     @Override
     public boolean remove(int Index) {
-        return false;  //To change body of implemented methods use File | Settings | File Templates.
+        Node<T> tempNode = startNode;
+
+        for(int i = 0; i < size; i++)
+        {
+            if(i == Index)
+            {
+                destroy(tempNode);
+                return true;
+            }
+
+            tempNode = tempNode.getNext();
+        }
+
+        return false;
+    }
+
+    private void destroy(Node<T> node)
+    {
+        // If node is at the end of the beginning of the list, make sure that elements are stay in correct order
+        if(node.getPrevious() == null)
+        {
+            startNode = node.getNext();
+            return;
+        }
+        else
+        {
+            node.getPrevious().setNext(node.getNext());
+        }
+        if(node.getNext() == null)
+        {
+            endNode = node.getPrevious();
+            return;
+        }
+        else
+        {
+            node.getNext().setPrevious(node.getPrevious());
+        }
+
+        // Remove node
+        node.getPrevious().setNext(node.getNext());
+        node.getNext().setPrevious(node.getPrevious());
+
+        size--;
     }
 
     @Override
@@ -140,16 +193,30 @@ public class LinkedList<T> implements IList<T> {
         return size;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
+    /**
+     *
+     * @return first element in the list
+     */
     @Override
     public T head() {
         return startNode.getData();
     }
 
+    /**
+     * Returns the last element in the list
+     * @return last element in list
+     */
     @Override
     public T tail() {
         return endNode.getData();
     }
 
+    /**
+     * Retrieves the element at the specified position.
+     * @param Position
+     * @return
+     * @throws IndexOutOfBoundsException
+     */
     @Override
     public T get(int Position) throws IndexOutOfBoundsException {
 
@@ -170,7 +237,7 @@ public class LinkedList<T> implements IList<T> {
 
     /**
      * Returns the string representation of all the objects in the stack.
-     * @return
+     * @return String
      */
     @Override
     public String toString()

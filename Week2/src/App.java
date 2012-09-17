@@ -35,5 +35,16 @@ public class App {
         list.add(students[7], 2);
 
         System.out.println(list.toString());
+
+        System.out.println("\n Remove student");
+
+        list.remove(students[2]);
+
+        System.out.println("New list:");
+        System.out.println(list.toString());
+
+        System.out.println("\n Remove last student");
+        list.remove(list.Size()-1);
+        System.out.println(list.toString());
     }
 }
