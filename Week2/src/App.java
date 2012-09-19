@@ -1,4 +1,3 @@
-import org.hofman.collection.IList;
 import org.hofman.collection.LinkedList;
 
 /**
@@ -10,7 +9,11 @@ import org.hofman.collection.LinkedList;
 public class App {
 
     public static void main(String[] args) {
-        IList<Student> list = new LinkedList<Student>();
+        TestList();
+    }
+
+    private static void TestList() {
+        LinkedList<Student> list = new LinkedList<Student>();
 
         Student students[] = new Student[8];
 
@@ -44,7 +47,7 @@ public class App {
         System.out.println(list.toString());
 
         System.out.println("\n Remove last student");
-        list.remove(list.Size()-1);
+        list.remove(list.size()-1);
         System.out.println(list.toString());
     }
 }

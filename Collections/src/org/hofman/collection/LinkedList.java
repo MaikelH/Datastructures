@@ -1,12 +1,14 @@
 package org.hofman.collection;
 
+import org.hofman.base.Predicate;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Maikel
  * Date: 6-9-12
  * Time: 11:06
  */
-public class LinkedList<T> implements IList<T> {
+public class LinkedList<T> implements ICollection<T> {
     private Node<T> startNode;
     private Node<T> endNode;
     private int size;
@@ -86,8 +88,8 @@ public class LinkedList<T> implements IList<T> {
      * Insert object at specified index. If index is larger then size, Exception is thrown.
      * @param Object
      * @param Index
+     * TODO: change add functions so that only one functions remains
      */
-    @Override
     public void add(T Object, int Index) {
         if(Index > size)
         {
@@ -141,7 +143,11 @@ public class LinkedList<T> implements IList<T> {
     }
 
 
-    @Override
+    /**
+     * Removes the object at the specified index
+     * @param Index
+     * @return
+     */
     public boolean remove(int Index) {
         Node<T> tempNode = startNode;
 
@@ -159,9 +165,13 @@ public class LinkedList<T> implements IList<T> {
         return false;
     }
 
+    /**
+     * Removes the node
+     * @param node node to remove
+     */
     private void destroy(Node<T> node)
     {
-        // If node is at the end of the beginning of the list, make sure that elements are stay in correct order
+        // If node is at the beginning set begin to next of the node
         if(node.getPrevious() == null)
         {
             startNode = node.getNext();
@@ -171,6 +181,7 @@ public class LinkedList<T> implements IList<T> {
         {
             node.getPrevious().setNext(node.getNext());
         }
+        // If node is at the end, set
         if(node.getNext() == null)
         {
             endNode = node.getPrevious();
@@ -189,7 +200,7 @@ public class LinkedList<T> implements IList<T> {
     }
 
     @Override
-    public int Size() {
+    public int size() {
         return size;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
@@ -197,7 +208,6 @@ public class LinkedList<T> implements IList<T> {
      *
      * @return first element in the list
      */
-    @Override
     public T head() {
         return startNode.getData();
     }
@@ -206,7 +216,6 @@ public class LinkedList<T> implements IList<T> {
      * Returns the last element in the list
      * @return last element in list
      */
-    @Override
     public T tail() {
         return endNode.getData();
     }
@@ -217,7 +226,6 @@ public class LinkedList<T> implements IList<T> {
      * @return
      * @throws IndexOutOfBoundsException
      */
-    @Override
     public T get(int Position) throws IndexOutOfBoundsException {
 
         if(Position >= size || Position < 0)
@@ -242,12 +250,25 @@ public class LinkedList<T> implements IList<T> {
     @Override
     public String toString()
     {
+        return toString(new Predicate<T>() {
+            @Override
+            public boolean apply(T object) {
+                return true;
+            }
+        });
+    }
+
+    public String toString(Predicate<T> predicate)
+    {
         StringBuilder builder = new StringBuilder();
 
         for(Node<T> tempElement = startNode; tempElement != null; tempElement = tempElement.getNext())
         {
-            builder.append(tempElement.getData().toString());
-            builder.append("\n");
+            if(predicate.apply(tempElement.getData()))
+            {
+                builder.append(tempElement.getData().toString());
+                builder.append("\n");
+            }
         }
 
         return builder.toString();
