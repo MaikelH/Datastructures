@@ -1,5 +1,7 @@
 package org.hofman.collection;
 
+import org.hofman.base.Predicate;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Maikel
@@ -7,7 +9,9 @@ package org.hofman.collection;
  * Time: 11:14
  */
 public interface ICollection<T> {
-    public void add(T Object);
+    public boolean add(T Object);
     public boolean remove(T Object);
+    public boolean contains(T object);
     public int size();
+    public String toString(Predicate<T> predicate);
 }

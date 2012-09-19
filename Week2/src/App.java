@@ -1,4 +1,5 @@
 import org.hofman.collection.LinkedList;
+import org.hofman.collection.Queue;
 
 /**
  * Created with IntelliJ IDEA.
@@ -8,14 +9,11 @@ import org.hofman.collection.LinkedList;
  */
 public class App {
 
-    public static void main(String[] args) {
-        TestList();
-    }
+    private static Student students[];
 
-    private static void TestList() {
-        LinkedList<Student> list = new LinkedList<Student>();
-
-        Student students[] = new Student[8];
+    public static void main(String[] args)
+    {
+        students = new Student[8];
 
         students[0] = new Student(8585854,"Maikel", 23, Geslacht.MAN);
         students[1] = new Student(1232131,"Piet", 24, Geslacht.MAN);
@@ -25,6 +23,13 @@ public class App {
         students[5] = new Student(1787637,"Petra", 21, Geslacht.VROUW);
         students[6] = new Student(1827374,"Maarten", 21, Geslacht.MAN);
         students[7] = new Student(1239399,"Lisa", 21, Geslacht.MAN);
+
+        //TestList();
+        TestQueue();
+    }
+
+    private static void TestList() {
+        LinkedList<Student> list = new LinkedList<Student>();
 
         list.add(students[0]);
         list.add(students[1]);
@@ -49,5 +54,30 @@ public class App {
         System.out.println("\n Remove last student");
         list.remove(list.size()-1);
         System.out.println(list.toString());
+    }
+
+    private static void TestQueue()
+    {
+        Queue<Student> queue = new Queue<Student>();
+
+        queue.add(students[0]);
+        queue.add(students[1]);
+        queue.add(students[2]);
+        queue.add(students[3]);
+        queue.add(students[4]);
+
+        System.out.println("* Print all students in Queue.");
+        System.out.println(queue.toString());
+
+        System.out.println("* Dequeue one item");
+        queue.remove();
+        System.out.println(queue.toString());
+
+        System.out.println("* Search for Student");
+        System.out.println("Result of search: " + queue.contains(students[2]));
+
+        System.out.println("\n * Remove one item: " + students[3].getNaam());
+        queue.remove(students[3]);
+        System.out.println(queue.toString());
     }
 }

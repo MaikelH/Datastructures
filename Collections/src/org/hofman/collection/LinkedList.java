@@ -63,7 +63,7 @@ public class LinkedList<T> implements ICollection<T> {
      * @param Object Last object in the list
      */
     @Override
-    public void add(T Object) {
+    public boolean add(T Object) {
         Node<T> tempNode = new Node<T>(Object);
 
         // If size == 0, no objects are inserted yet.
@@ -82,6 +82,8 @@ public class LinkedList<T> implements ICollection<T> {
         }
 
         size++;
+
+        return true;
     }
 
     /**
@@ -135,6 +137,19 @@ public class LinkedList<T> implements ICollection<T> {
             if(tempNode.getData().equals(Object))
             {
                 destroy(tempNode);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean contains(T object) {
+        for(Node<T> tempElement = startNode; tempElement != null; tempElement = tempElement.getNext())
+        {
+            if(tempElement.getData().equals(object))
+            {
                 return true;
             }
         }

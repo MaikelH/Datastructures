@@ -1,5 +1,7 @@
 package org.hofman.collection;
 
+import org.hofman.base.Predicate;
+
 import java.util.NoSuchElementException;
 
 /**
@@ -56,7 +58,7 @@ public class Queue<T> implements ICollection<T> {
     }
 
     @Override
-    public void add(T Object) {
+    public boolean add(T Object) {
         Node<T> tempNode = new Node<T>(Object);
 
         // If size == 0, no objects are inserted yet.
@@ -75,32 +77,108 @@ public class Queue<T> implements ICollection<T> {
         }
 
         size++;
+
+        return true;
     }
 
     @Override
     public boolean remove(T Object) {
-        return false;  //To change body of implemented methods use File | Settings | File Templates.
+        for(Node<T> tempElement = startNode; tempElement != null; tempElement = tempElement.getNext())
+        {
+            if(tempElement.getData().equals(Object))
+            {
+                destroy(tempElement);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean contains(T object) {
+        for(Node<T> tempElement = startNode; tempElement != null; tempElement = tempElement.getNext())
+        {
+            if(tempElement.getData().equals(object))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public T remove()
     {
         if(size > 0)
         {
-            Node<T> tempNode = startNode;
+            Node<T> tempElement = startNode;
+            destroy(startNode);
 
-            startNode.getNext().setPrevious(null);
-            startNode = startNode.getNext();
-
-            size--;
-
-            return tempNode.getData();
+            return startNode.getData();
         }
 
         throw new NoSuchElementException();
     }
 
+    private void destroy(Node<T> node)
+    {
+        // If node is at the beginning set begin to next of the node
+        if(node.getPrevious() == null)
+        {
+            startNode = node.getNext();
+            return;
+        }
+        else
+        {
+            node.getPrevious().setNext(node.getNext());
+        }
+        // If node is at the end, set
+        if(node.getNext() == null)
+        {
+            endNode = node.getPrevious();
+            return;
+        }
+        else
+        {
+            node.getNext().setPrevious(node.getPrevious());
+        }
+
+        // Remove node
+        node.getPrevious().setNext(node.getNext());
+        node.getNext().setPrevious(node.getPrevious());
+
+        size--;
+    }
+
     @Override
     public int size() {
         return size;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    public String toString()
+    {
+        return toString(new Predicate<T>() {
+            @Override
+            public boolean apply(T object) {
+                return true;
+            }
+        });
+    }
+
+    @Override
+    public String toString(Predicate<T> predicate) {
+        StringBuilder builder = new StringBuilder();
+
+        for(Node<T> tempElement = startNode; tempElement != null; tempElement = tempElement.getNext())
+        {
+            if(predicate.apply(tempElement.getData()))
+            {
+                builder.append(tempElement.getData().toString());
+                builder.append("\n");
+            }
+        }
+
+        return builder.toString();
     }
 }
