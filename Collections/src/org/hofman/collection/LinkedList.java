@@ -8,7 +8,7 @@ import org.hofman.base.Predicate;
  * Date: 6-9-12
  * Time: 11:06
  */
-public class LinkedList<T> implements ICollection<T> {
+public class LinkedList<T> implements IList<T> {
     private Node<T> startNode;
     private Node<T> endNode;
     private int size;
@@ -223,6 +223,7 @@ public class LinkedList<T> implements ICollection<T> {
      *
      * @return first element in the list
      */
+    @Override
     public T head() {
         return startNode.getData();
     }
@@ -231,6 +232,7 @@ public class LinkedList<T> implements ICollection<T> {
      * Returns the last element in the list
      * @return last element in list
      */
+    @Override
     public T tail() {
         return endNode.getData();
     }
@@ -241,6 +243,7 @@ public class LinkedList<T> implements ICollection<T> {
      * @return
      * @throws IndexOutOfBoundsException
      */
+    @Override
     public T get(int Position) throws IndexOutOfBoundsException {
 
         if(Position >= size || Position < 0)
@@ -287,5 +290,15 @@ public class LinkedList<T> implements ICollection<T> {
         }
 
         return builder.toString();
+    }
+
+    @Override
+    public boolean isEmpty() {
+        if(size() == 0)
+        {
+            return true;
+        }
+
+        return false;
     }
 }

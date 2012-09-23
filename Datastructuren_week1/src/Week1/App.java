@@ -3,6 +3,8 @@ package Week1;
 import org.hofman.base.Predicate;
 import org.hofman.collection.Stack;
 
+import java.util.ArrayList;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Maikel
@@ -71,6 +73,5 @@ public class App {
                return false;
            }
        }));
-
    }
 }

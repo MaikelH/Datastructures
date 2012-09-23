@@ -181,4 +181,10 @@ public class Queue<T> implements ICollection<T> {
 
         return builder.toString();
     }
+
+    @Override
+    public boolean isEmpty() {
+        // TODO: Add implementation for isEmpty
+        return false;  //To change body of implemented methods use File | Settings | File Templates.
+    }
 }

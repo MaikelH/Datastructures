@@ -1,5 +1,6 @@
 import org.hofman.collection.LinkedList;
 import org.hofman.collection.Queue;
+import org.hofman.collection.SortedList;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,17 +16,18 @@ public class App {
     {
         students = new Student[8];
 
-        students[0] = new Student(8585854,"Maikel", 23, Geslacht.MAN);
+        students[0] = new Student(1585854,"Maikel", 23, Geslacht.MAN);
         students[1] = new Student(1232131,"Piet", 24, Geslacht.MAN);
-        students[2] = new Student(1233209,"Marie", 21, Geslacht.VROUW);
-        students[3] = new Student(1232132,"Heleen", 19, Geslacht.VROUW);
-        students[4] = new Student(1287843,"Jan", 20, Geslacht.MAN);
-        students[5] = new Student(1787637,"Petra", 21, Geslacht.VROUW);
+        students[2] = new Student(2233209,"Marie", 21, Geslacht.VROUW);
+        students[3] = new Student(3232132,"Heleen", 19, Geslacht.VROUW);
+        students[4] = new Student(2287843,"Jan", 20, Geslacht.MAN);
+        students[5] = new Student(1187637,"Petra", 21, Geslacht.VROUW);
         students[6] = new Student(1827374,"Maarten", 21, Geslacht.MAN);
         students[7] = new Student(1239399,"Lisa", 21, Geslacht.MAN);
 
         //TestList();
-        TestQueue();
+        //TestQueue();
+        TestSortedList();
     }
 
     private static void TestList() {
@@ -56,8 +58,7 @@ public class App {
         System.out.println(list.toString());
     }
 
-    private static void TestQueue()
-    {
+    private static void TestQueue() {
         Queue<Student> queue = new Queue<Student>();
 
         queue.add(students[0]);
@@ -79,5 +80,19 @@ public class App {
         System.out.println("\n * Remove one item: " + students[3].getNaam());
         queue.remove(students[3]);
         System.out.println(queue.toString());
+    }
+
+    private static void TestSortedList() {
+        SortedList<Student> list = new SortedList<Student>();
+
+        list.add(students[0]);
+        list.add(students[1]);
+        list.add(students[2]);
+        list.add(students[3]);
+        list.add(students[4]);
+
+        // Return max/min Element
+        System.out.println("Max element " + list.tail().getNaam());
+        System.out.println("Min element " + list.head().getNaam());
     }
 }

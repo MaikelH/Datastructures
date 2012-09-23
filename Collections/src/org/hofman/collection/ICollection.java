@@ -14,4 +14,5 @@ public interface ICollection<T> {
     public boolean contains(T object);
     public int size();
     public String toString(Predicate<T> predicate);
+    public boolean isEmpty();
 }
