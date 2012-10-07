@@ -94,5 +94,12 @@ public class App {
         // Return max/min Element
         System.out.println("Max element " + list.tail().getNaam());
         System.out.println("Min element " + list.head().getNaam());
+
+        // Search for element
+        System.out.println("Element found: " + list.contains(students[3]));
+
+        // Print all elements
+        System.out.println("All elements in order");
+        System.out.println(list.toString());
     }
 }

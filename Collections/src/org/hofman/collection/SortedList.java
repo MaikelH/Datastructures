@@ -15,6 +15,7 @@ import org.hofman.base.Predicate;
 public class SortedList<T extends Comparable> implements IList<T> {
 
     private AVLNode<T> root;
+    private int size;
 
     private class AVLNode<T>
     {
@@ -22,8 +23,6 @@ public class SortedList<T extends Comparable> implements IList<T> {
         private AVLNode<T> left;
         private AVLNode<T> right;
         private AVLNode<T> parent;
-        private int leftTreeHeight;
-        private int rightTreeHeight;
 
         public AVLNode()
         {
@@ -31,8 +30,6 @@ public class SortedList<T extends Comparable> implements IList<T> {
             setLeft(null);
             setRight(null);
             setParent(null);
-            setLeftTreeHeight(0);
-            setRightTreeHeight(0);
         }
 
         public AVLNode(T object)
@@ -83,19 +80,11 @@ public class SortedList<T extends Comparable> implements IList<T> {
         }
 
         public int getLeftTreeHeight() {
-            return leftTreeHeight;
-        }
-
-        public void setLeftTreeHeight(int leftTreeHeight) {
-            this.leftTreeHeight = leftTreeHeight;
+            return (left == null) ? 0 : 1 + left.getLeftTreeHeight();
         }
 
         public int getRightTreeHeight() {
-            return rightTreeHeight;
-        }
-
-        public void setRightTreeHeight(int rightTreeHeight) {
-            this.rightTreeHeight = rightTreeHeight;
+            return (right == null) ? 0 : 1 + right.getRightTreeHeight();
         }
     }
 
@@ -136,20 +125,32 @@ public class SortedList<T extends Comparable> implements IList<T> {
     @Override
     public boolean add(T Object) {
 
+        boolean returnVal = false;
+
         if(root == null)
         {
             root = new AVLNode<T>(Object);
+            returnVal = true;
+        }
+        else
+        {
+            returnVal = add(Object, root);
         }
 
-        return add(Object, root);
+        size++;
+
+        return returnVal;
     }
 
     private boolean add(T Object, AVLNode<T> node)
     {
+        boolean returnValue = false;
+
         if(Object.compareTo(node.getData()) < 0)
         {
             if(node.getLeft() == null) {
                 node.setLeft(new AVLNode<T>(Object));
+
                 return true;
             }
             else {
@@ -161,6 +162,7 @@ public class SortedList<T extends Comparable> implements IList<T> {
             if(node.getRight() == null)
             {
                 node.setRight(new AVLNode<T>(Object));
+
                 return true;
             }
             else
@@ -168,30 +170,114 @@ public class SortedList<T extends Comparable> implements IList<T> {
                 return add(Object, node.getRight());
             }
         }
+
+
+    }
+
+    private AVLNode<T> singleRotation(AVLNode<T> rotationBase) {
+        int balance = rotationBase.balance();
+
+        return null;
+    }
+
+    private AVLNode<T> doubleRotation(AVLNode<T> rotationBase)
+    {
+        return null;
     }
 
     @Override
     public boolean remove(T Object) {
-        return false;  //To change body of implemented methods use File | Settings | File Templates.
+        return false;
     }
 
+    /**
+     * Searches for an element in the collection
+     * @param object
+     * @return True if object is found, otherwise return false
+     */
     @Override
     public boolean contains(T object) {
-        return false;  //To change body of implemented methods use File | Settings | File Templates.
+
+        AVLNode<T> temp = root;
+
+        while(temp != null)
+        {
+            if(temp.getData().equals(object))
+            {
+                return true;
+            }
+
+            int compare = object.compareTo(temp.getData());
+
+            temp = (compare < 0) ? temp.getLeft() : temp.getRight();
+        }
+
+        return false;
     }
 
     @Override
     public int size() {
-        return 0;  //To change body of implemented methods use File | Settings | File Templates.
+        return size;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public String toString()
+    {
+        return toString(new Predicate<T>() {
+            @Override
+            public boolean apply(T object) {
+                return true;
+            }
+        });
     }
 
     @Override
     public String toString(Predicate<T> predicate) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        if(root == null)
+        {
+            return null;
+        }
+        else
+        {
+            return inOrderTraversalPrint(root, predicate);
+        }
+    }
+
+    /**
+     * Print the all the elements were the applied predicate is true in order.
+     * @param node Node to start
+     * @param predicate Predicate to apply
+     * @return String representation of binarytree
+     */
+    private String inOrderTraversalPrint(AVLNode<T> node, Predicate<T> predicate)
+    {
+        // TODO: Simple additions of an string are slow find something faster
+        String temp = "";
+        if(node.getLeft() != null)
+        {
+            temp += inOrderTraversalPrint(node.getLeft(), predicate);
+        }
+
+        if(predicate.apply(node.getData()))
+        {
+            temp += node.getData().toString() + "\n";
+        }
+
+        if(node.getRight() != null)
+        {
+            temp += inOrderTraversalPrint(node.getRight(), predicate);
+        }
+
+        return temp;
     }
 
     @Override
     public boolean isEmpty() {
-        return false;  //To change body of implemented methods use File | Settings | File Templates.
+        if(size == 0)
+        {
+            return true;
+        }
+
+        return false;
     }
 }
