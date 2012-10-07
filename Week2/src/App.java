@@ -89,10 +89,13 @@ public class App {
         list.add(students[1]);
         list.add(students[2]);
         list.add(students[3]);
+        System.out.println(list.debugInfo());
         list.add(students[4]);
         list.add(students[5]);
         list.add(students[6]);
         list.add(students[7]);
+
+        System.out.println(list.debugInfo());
 
         // Return max/min Element
         System.out.println("Max element " + list.tail().getNaam());
@@ -105,8 +108,13 @@ public class App {
         System.out.println("All elements in order");
         System.out.println(list.toString());
 
+        System.out.println(list.debugInfo());
+
         // Remove one element
         list.remove(students[0]);
         System.out.println(list.toString());
+
+        System.out.println(list.debugInfo());
     }
+
 }

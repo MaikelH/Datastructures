@@ -91,6 +91,7 @@ public class SortedList<T extends Comparable> implements IList<T> {
     public SortedList()
     {
         root = null;
+        size = 0;
     }
 
     @Override
@@ -160,14 +161,13 @@ public class SortedList<T extends Comparable> implements IList<T> {
 
     private boolean add(T Object, AVLNode<T> node)
     {
-        boolean returnValue = false;
-
         if(Object.compareTo(node.getData()) < 0)
         {
             if(node.getLeft() == null) {
                 node.setLeft(new AVLNode<T>(Object));
                 node.getLeft().setParent(node);
 
+                reBalance(root);
                 return true;
             }
             else {
@@ -181,6 +181,7 @@ public class SortedList<T extends Comparable> implements IList<T> {
                 node.setRight(new AVLNode<T>(Object));
                 node.getRight().setParent(node);
 
+                reBalance(root);
                 return true;
             }
             else
@@ -192,15 +193,78 @@ public class SortedList<T extends Comparable> implements IList<T> {
 
     }
 
-    private AVLNode<T> singleRotation(AVLNode<T> rotationBase) {
-        int balance = rotationBase.balance();
-
-        return null;
+    /**
+     * Checks if the tree is still in balance, if not performs operations to rebalance
+     */
+    private void reBalance(AVLNode<T> node)
+    {
+        // Tree is right heavy
+        if(node.balance() > 1)
+        {
+            if(node.getRight().balance() < -1)
+            {
+                rightLeftRotation(node);
+            }
+            else
+            {
+                singleLeftRotation(node);
+            }
+        }
+        else if(node.balance() < -1 )
+        {
+            if(node.getLeft().balance() > 1)
+            {
+                leftRightRotation(node);
+            }
+            else
+            {
+                singleRightRotation(node);
+            }
+        }
     }
 
-    private AVLNode<T> doubleRotation(AVLNode<T> rotationBase)
+    private AVLNode<T> singleLeftRotation(AVLNode<T> rotationBase)
     {
-        return null;
+        // Set pivot point
+        AVLNode<T> pivot = rotationBase.getRight();
+
+        // Detach right subtree and add left subtree of pivot
+        rotationBase.setRight(rotationBase.getLeft());
+        rotationBase.getRight().setParent(rotationBase);
+        pivot.setParent(rotationBase.getParent());
+
+        // Set new root
+        pivot.setLeft(rotationBase);
+        pivot.getLeft().setParent(pivot);
+
+        return pivot;
+    }
+
+    private AVLNode<T> singleRightRotation(AVLNode<T> rotationBase)
+    {
+        // Set pivot point
+        AVLNode<T> pivot = rotationBase.getLeft();
+
+        // Detach right subtree and add left subtree of pivot
+        rotationBase.setLeft(rotationBase.getRight());
+        rotationBase.getLeft().setParent(rotationBase);
+        pivot.setParent(rotationBase.getParent());
+
+        // Set new root
+        pivot.setRight(rotationBase);
+        pivot.getRight().setParent(pivot);
+
+        return pivot;
+    }
+
+    private AVLNode<T> leftRightRotation(AVLNode<T> rotationBase)
+    {
+        return singleRightRotation( singleLeftRotation(rotationBase.getLeft()));
+    }
+
+    private AVLNode<T> rightLeftRotation(AVLNode<T> rotationBase)
+    {
+        return singleLeftRotation(singleLeftRotation(rotationBase.getRight()));
     }
 
     @Override
@@ -220,8 +284,7 @@ public class SortedList<T extends Comparable> implements IList<T> {
 
     /**
      * Removes node from the three
-     * @param node
-     * @return True if operation succeeds else false
+     * @param node node to remove
      */
     private void remove(AVLNode<T> node)
     {
@@ -261,21 +324,18 @@ public class SortedList<T extends Comparable> implements IList<T> {
                 node.setRight(null);
             }
         }
+
+        reBalance(root);
     }
 
     /**
      * Searches for an element in the collection
-     * @param object
+     * @param object object to find
      * @return True if object is found, otherwise return false
      */
     @Override
     public boolean contains(T object) {
-        if(find(object) != null)
-        {
-            return true;
-        }
-
-        return false;
+        return find(object) != null;
     }
 
     private AVLNode<T> find(T object)
@@ -355,11 +415,6 @@ public class SortedList<T extends Comparable> implements IList<T> {
 
     @Override
     public boolean isEmpty() {
-        if(size == 0)
-        {
-            return true;
-        }
-
-        return false;
+        return (size == 0);
     }
 }
