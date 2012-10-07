@@ -95,26 +95,42 @@ public class SortedList<T extends Comparable> implements IList<T> {
 
     @Override
     public T head() {
-        AVLNode<T> node = root;
+        if(root != null)
+        {
+            return head(root).getData();
+        }
 
+        return null;
+    }
+
+    private AVLNode<T> head(AVLNode<T> node)
+    {
         while (node.getLeft() != null)
         {
             node = node.getLeft();
         }
 
-        return node.getData();
+        return node;
     }
 
     @Override
     public T tail() {
-        AVLNode<T> node = root;
+        if(root != null)
+        {
+            return tail(root).getData();
+        }
 
+        return null;
+    }
+
+    private AVLNode<T> tail(AVLNode<T> node)
+    {
         while (node.getRight() != null)
         {
             node = node.getRight();
         }
 
-        return node.getData();
+        return node;
     }
 
     @Override
@@ -125,7 +141,7 @@ public class SortedList<T extends Comparable> implements IList<T> {
     @Override
     public boolean add(T Object) {
 
-        boolean returnVal = false;
+        boolean returnVal;
 
         if(root == null)
         {
@@ -150,6 +166,7 @@ public class SortedList<T extends Comparable> implements IList<T> {
         {
             if(node.getLeft() == null) {
                 node.setLeft(new AVLNode<T>(Object));
+                node.getLeft().setParent(node);
 
                 return true;
             }
@@ -162,6 +179,7 @@ public class SortedList<T extends Comparable> implements IList<T> {
             if(node.getRight() == null)
             {
                 node.setRight(new AVLNode<T>(Object));
+                node.getRight().setParent(node);
 
                 return true;
             }
@@ -187,7 +205,62 @@ public class SortedList<T extends Comparable> implements IList<T> {
 
     @Override
     public boolean remove(T Object) {
+
+        AVLNode<T> nodeToRemove = find(Object);
+
+        if(nodeToRemove != null)
+        {
+            remove(nodeToRemove);
+            size--;
+            return true;
+        }
+
         return false;
+    }
+
+    /**
+     * Removes node from the three
+     * @param node
+     * @return True if operation succeeds else false
+     */
+    private void remove(AVLNode<T> node)
+    {
+        // Leaf node so deletion is simple
+        if(node.getLeft() == null && node.getRight() == null)
+        {
+            if(node.getParent().getData().compareTo(node.getData()) < 0)
+            {
+                node.getParent().setRight(null);
+            }
+            else
+            {
+                node.getParent().setLeft(null);
+            }
+        }
+        // Node with two childeren
+        else if(node.getLeft() != null && node.getRight() != null)
+        {
+            // Find minimum in right tree
+            AVLNode<T> minNode = head(node.getRight());
+            node.setData(minNode.getData());
+            remove(minNode);
+        }
+        else
+        {
+            // Only one child node
+            if(node.getLeft() != null)
+            {
+                node.getLeft().setParent(null);
+                node.setData(node.getLeft().getData());
+                node.setLeft(null);
+            }
+            else
+            {
+                node.getRight().setParent(null);
+                node.setData(node.getRight().getData());
+                node.setRight(null);
+            }
+        }
     }
 
     /**
@@ -197,14 +270,23 @@ public class SortedList<T extends Comparable> implements IList<T> {
      */
     @Override
     public boolean contains(T object) {
+        if(find(object) != null)
+        {
+            return true;
+        }
 
+        return false;
+    }
+
+    private AVLNode<T> find(T object)
+    {
         AVLNode<T> temp = root;
 
         while(temp != null)
         {
             if(temp.getData().equals(object))
             {
-                return true;
+                return temp;
             }
 
             int compare = object.compareTo(temp.getData());
@@ -212,7 +294,7 @@ public class SortedList<T extends Comparable> implements IList<T> {
             temp = (compare < 0) ? temp.getLeft() : temp.getRight();
         }
 
-        return false;
+        return null;
     }
 
     @Override
