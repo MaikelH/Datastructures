@@ -127,6 +127,7 @@ public class Queue<T> implements ICollection<T> {
         if(node.getPrevious() == null)
         {
             startNode = node.getNext();
+            size--;
             return;
         }
         else
@@ -137,6 +138,7 @@ public class Queue<T> implements ICollection<T> {
         if(node.getNext() == null)
         {
             endNode = node.getPrevious();
+            size--;
             return;
         }
         else
@@ -184,7 +186,6 @@ public class Queue<T> implements ICollection<T> {
 
     @Override
     public boolean isEmpty() {
-        // TODO: Add implementation for isEmpty
-        return false;  //To change body of implemented methods use File | Settings | File Templates.
+        return (size() == 0);
     }
 }

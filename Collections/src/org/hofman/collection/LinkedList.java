@@ -190,6 +190,7 @@ public class LinkedList<T> implements IList<T> {
         if(node.getPrevious() == null)
         {
             startNode = node.getNext();
+            size--;
             return;
         }
         else
@@ -200,6 +201,7 @@ public class LinkedList<T> implements IList<T> {
         if(node.getNext() == null)
         {
             endNode = node.getPrevious();
+            size--;
             return;
         }
         else
@@ -225,7 +227,9 @@ public class LinkedList<T> implements IList<T> {
      */
     @Override
     public T head() {
-        return startNode.getData();
+        Node<T> temp = startNode;
+        destroy(startNode);
+        return temp.getData();
     }
 
     /**
@@ -234,7 +238,9 @@ public class LinkedList<T> implements IList<T> {
      */
     @Override
     public T tail() {
-        return endNode.getData();
+        Node<T> temp = endNode;
+        destroy(endNode);
+        return temp.getData();
     }
 
     /**
@@ -294,11 +300,6 @@ public class LinkedList<T> implements IList<T> {
 
     @Override
     public boolean isEmpty() {
-        if(size() == 0)
-        {
-            return true;
-        }
-
-        return false;
+        return size() == 0;
     }
 }

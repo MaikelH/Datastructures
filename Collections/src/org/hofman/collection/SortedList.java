@@ -94,6 +94,10 @@ public class SortedList<T extends Comparable> implements IList<T> {
         size = 0;
     }
 
+    /**
+     * Returns the first element in the collection
+     * @return Object
+     */
     @Override
     public T head() {
         if(root != null)
@@ -114,6 +118,10 @@ public class SortedList<T extends Comparable> implements IList<T> {
         return node;
     }
 
+    /**
+     * Returns the last element in the collection.
+     * @return Last element in the collection
+     */
     @Override
     public T tail() {
         if(root != null)
@@ -134,11 +142,32 @@ public class SortedList<T extends Comparable> implements IList<T> {
         return node;
     }
 
+    /**
+     * Returns the object of type T at the specified index
+     * @param Position
+     * @return The element
+     * @throws IndexOutOfBoundsException
+     */
     @Override
     public T get(int Position) throws IndexOutOfBoundsException {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+
+        if(Position >= this.size())
+        {
+            throw new IndexOutOfBoundsException();
+        }
+
+        // Get start node = head node
+        AVLNode<T> startNode = this.head(root);
+
+        // Do inorder traversal of the tree to get to the right index number
+        return null;
     }
 
+    /**
+     * Add the object to the collection
+     * @param Object object to insert.
+     * @return true if successful
+     */
     @Override
     public boolean add(T Object) {
 
@@ -159,6 +188,12 @@ public class SortedList<T extends Comparable> implements IList<T> {
         return returnVal;
     }
 
+    /**
+     * Add the specified object at the specified node. If the object can't be added search further.
+     * @param Object Object to insert
+     * @param node Node at which to insert
+     * @return true if insertion succesfull
+     */
     private boolean add(T Object, AVLNode<T> node)
     {
         if(Object.compareTo(node.getData()) < 0)
@@ -189,8 +224,6 @@ public class SortedList<T extends Comparable> implements IList<T> {
                 return add(Object, node.getRight());
             }
         }
-
-
     }
 
     /**
@@ -223,6 +256,19 @@ public class SortedList<T extends Comparable> implements IList<T> {
         }
     }
 
+    /**
+     * Do a single left rotation on the tree to bring it in balance
+     *
+     *  A                          B
+     *   \                       /   \
+     *    B        -->          A     C
+     *     \
+     *      C
+     *
+     *
+     * @param rotationBase Base on which to start the rotation
+     * @return New root
+     */
     private AVLNode<T> singleLeftRotation(AVLNode<T> rotationBase)
     {
         // Set pivot point
@@ -240,6 +286,19 @@ public class SortedList<T extends Comparable> implements IList<T> {
         return pivot;
     }
 
+    /**
+     * Do a single right rotation on the tree to bring in the tree in balance
+     *
+     *      A                      B
+     *     /                     /   \
+     *    B        -->          C     A
+     *   /
+     *  C
+     *
+     *
+     * @param rotationBase Base on which to start the rotation
+     * @return New root
+     */
     private AVLNode<T> singleRightRotation(AVLNode<T> rotationBase)
     {
         // Set pivot point
@@ -254,19 +313,49 @@ public class SortedList<T extends Comparable> implements IList<T> {
         pivot.setRight(rotationBase);
         pivot.getRight().setParent(pivot);
 
+        // return the new root
         return pivot;
     }
 
+    /**
+     * A function to do right left rotation to bring the tree in balance again.
+     *
+     *    A           A                    C
+     *     \           \                 /   \
+     *      B   -->     C       -->     A     B
+     *     /             \
+     *    C               B
+     *
+     * @param rotationBase
+     * @return The new root of the tree
+     */
     private AVLNode<T> leftRightRotation(AVLNode<T> rotationBase)
     {
         return singleRightRotation( singleLeftRotation(rotationBase.getLeft()));
     }
 
+    /**
+     * A function to do right left rotation to bring the tree in balance again.
+     *
+     *    A                A                   C
+     *   /                /                  /   \
+     *  B       -->      C        -->       B     A
+     *   \              /
+     *    C            B
+     *
+     * @param rotationBase
+     * @return The new root of the tree
+     */
     private AVLNode<T> rightLeftRotation(AVLNode<T> rotationBase)
     {
         return singleLeftRotation(singleLeftRotation(rotationBase.getRight()));
     }
 
+    /**
+     * Removes the specified object in the collection. If the object is not found, false is returned.
+     * @param Object
+     * @return true if object is removed
+     */
     @Override
     public boolean remove(T Object) {
 
@@ -338,6 +427,11 @@ public class SortedList<T extends Comparable> implements IList<T> {
         return find(object) != null;
     }
 
+    /**
+     * Find the node that holds the specified object
+     * @param object
+     * @return AVLNode<T> that contains the object, null if the object is not found.
+     */
     private AVLNode<T> find(T object)
     {
         AVLNode<T> temp = root;
@@ -357,6 +451,10 @@ public class SortedList<T extends Comparable> implements IList<T> {
         return null;
     }
 
+    /**
+     * Returns the size of the collection
+     * @return size of the collection
+     */
     @Override
     public int size() {
         return size;  //To change body of implemented methods use File | Settings | File Templates.
@@ -413,6 +511,10 @@ public class SortedList<T extends Comparable> implements IList<T> {
         return temp;
     }
 
+    /**
+     * Checks if the collection is empty
+     * @return true if collection is empty, false otherwise
+     */
     @Override
     public boolean isEmpty() {
         return (size == 0);
