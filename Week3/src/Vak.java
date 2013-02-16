@@ -12,6 +12,7 @@ public class Vak implements Comparable<Vak> {
 
     @Override
     public int compareTo(Vak o) {
+        // TODO: Toevoegen compareTo functie
         return 0;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
@@ -25,7 +26,7 @@ public class Vak implements Comparable<Vak> {
             Vak other = (Vak) object;
 
             // Assume that Studentnummer is unique
-            if(other.getModuleCode() == this.getModuleCode())
+            if(other.getModuleCode().equals(this.getModuleCode()))
             {
                 return true;
             }

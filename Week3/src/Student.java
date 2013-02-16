@@ -11,7 +11,9 @@ public class Student implements Comparable {
     private String naam;
     private int leeftijd;
     private Geslacht geslacht;
-    private LinkedList vakken;
+    private LinkedList<Vak> vakken;
+    private String klas;
+    private String studieRichting;
 
     @Override
     public String toString()
@@ -66,6 +68,10 @@ public class Student implements Comparable {
         }
     }
 
+    /**
+     * Voegt een vak toe aan de lijst met vakken
+     * @param vak
+     */
     public void addVak(Vak vak)
     {
         if(!this.vakken.contains(vak))
@@ -106,7 +112,39 @@ public class Student implements Comparable {
         this.studentnummer = studentnummer;
     }
 
-    public LinkedList getVakken() {
-        return vakken;
+    public LinkedList getVakken(int jaar) {
+        if(jaar == 0)
+        {
+            return vakken;
+        }
+        else
+        {
+            // TODO: Implement where function in linkedlist
+            return new LinkedList();
+        }
+    }
+
+    public String getKlas() {
+        return klas;
+    }
+
+    public void setKlas(String klas) {
+        this.klas = klas;
+    }
+
+    public String getStudieRichting() {
+        return studieRichting;
+    }
+
+    public void setStudieRichting(String studieRichting) {
+        this.studieRichting = studieRichting;
+    }
+
+    /**
+     * Retourneert het gemiddelde van alle vakken
+     * @return
+     */
+    public double gemiddelde() {
+        return 0.0;
     }
 }
