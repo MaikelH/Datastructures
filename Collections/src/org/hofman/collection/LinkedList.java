@@ -1,5 +1,6 @@
 package org.hofman.collection;
 
+import org.hofman.base.Function;
 import org.hofman.base.Predicate;
 
 /**
@@ -302,4 +303,32 @@ public class LinkedList<T> implements IList<T> {
     public boolean isEmpty() {
         return size() == 0;
     }
+
+    @Override
+    public double average(Function<T, Double> input) {
+        double result = 0;
+
+        for(Node<T> tempElement = startNode; tempElement != null; tempElement = tempElement.getNext())
+        {
+            result += input.apply(tempElement.getData());
+        }
+
+        return (result /= this.size());
+    }
+
+    @Override
+    public IList<T> where(Predicate<T> predicate) {
+        LinkedList<T> list = new LinkedList<T>();
+
+        for(Node<T> tempElement = startNode; tempElement != null; tempElement = tempElement.getNext())
+        {
+            if(predicate.apply(tempElement.getData()))
+            {
+                list.add(tempElement.getData());
+            }
+        }
+
+        return list;
+    }
+
 }

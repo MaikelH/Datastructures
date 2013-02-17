@@ -1,3 +1,5 @@
+import org.hofman.base.Function;
+import org.hofman.base.Predicate;
 import org.hofman.collection.LinkedList;
 
 /**
@@ -14,6 +16,11 @@ public class Student implements Comparable {
     private LinkedList<Vak> vakken;
     private String klas;
     private String studieRichting;
+
+    public Student()
+    {
+        vakken = new LinkedList<Vak>();
+    }
 
     @Override
     public String toString()
@@ -142,9 +149,17 @@ public class Student implements Comparable {
 
     /**
      * Retourneert het gemiddelde van alle vakken
-     * @return
+     * @return Gemiddelde
      */
     public double gemiddelde() {
-        return 0.0;
+        return this.vakken.where(new Predicate<Vak>() {
+            @Override
+            public boolean apply(Vak object) {return object.getCijfer() != -1;}
+        }).average(new Function<Vak, Double>() {
+            @Override
+            public Double apply(Vak input) {
+                return (double)input.getCijfer();
+            }
+        });
     }
 }

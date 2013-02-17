@@ -1,5 +1,6 @@
 package org.hofman.collection;
 
+import org.hofman.base.Function;
 import org.hofman.base.Predicate;
 
 /**
@@ -161,6 +162,16 @@ public class SortedList<T extends Comparable> implements IList<T> {
 
         // Do inorder traversal of the tree to get to the right index number
         return null;
+    }
+
+    @Override
+    public double average(Function<T, Double> input) {
+        return 0;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public IList<T> where(Predicate<T> predicate) {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
     /**

@@ -1,5 +1,8 @@
 package org.hofman.collection;
 
+import org.hofman.base.Function;
+import org.hofman.base.Predicate;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Maikel
@@ -14,4 +17,13 @@ public interface IList<T> extends ICollection<T> {
     T tail();
 
     T get(int Position) throws IndexOutOfBoundsException;
+
+    double average(Function<T, Double> input);
+
+    /**
+     * Filters a sequence of values based on the predicate.
+     * @param predicate
+     * @return IList<T>
+     */
+    IList<T> where(Predicate<T> predicate);
 }

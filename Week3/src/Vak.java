@@ -25,7 +25,7 @@ public class Vak implements Comparable<Vak> {
         {
             Vak other = (Vak) object;
 
-            // Assume that Studentnummer is unique
+            // Assume that ModuleCode is unique
             if(other.getModuleCode().equals(this.getModuleCode()))
             {
                 return true;
