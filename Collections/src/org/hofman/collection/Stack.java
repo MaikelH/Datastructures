@@ -70,7 +70,7 @@ public class Stack<T> {
     }
 
     /**
-     * Pops the topmost element of the stock.
+     * Removes the topmost element of the stock.
      * @return Topmost element in the stack
      */
     public T pop()

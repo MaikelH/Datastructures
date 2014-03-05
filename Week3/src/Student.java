@@ -1,5 +1,6 @@
 import org.hofman.base.Function;
 import org.hofman.base.Predicate;
+import org.hofman.collection.IList;
 import org.hofman.collection.LinkedList;
 
 /**
@@ -119,16 +120,22 @@ public class Student implements Comparable {
         this.studentnummer = studentnummer;
     }
 
-    public LinkedList getVakken(int jaar) {
+    public IList<Vak> getVakken(final int jaar) {
         if(jaar == 0)
         {
-            return vakken;
+            return vakken.where(new Predicate<Vak>() {
+                @Override
+                public boolean apply(Vak object) {
+                    return object.getCijfer() != -1;
+                }
+            });
         }
-        else
-        {
-            // TODO: Implement where function in linkedlist
-            return new LinkedList();
-        }
+        return vakken.where(new Predicate<Vak>() {
+            @Override
+            public boolean apply(Vak object) {
+                return object.getCijfer() != 1 && object.getJaar() == jaar;
+            }
+        });
     }
 
     public String getKlas() {

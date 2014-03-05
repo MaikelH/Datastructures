@@ -3,17 +3,22 @@ package org.hofman.collection;
 import org.hofman.base.Function;
 import org.hofman.base.Predicate;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 /**
- * Created with IntelliJ IDEA.
- * User: Maikel
- * Date: 6-9-12
- * Time: 11:06
+ * Double linked list.
+ * @param <T>
  */
 public class LinkedList<T> implements IList<T> {
     private Node<T> startNode;
     private Node<T> endNode;
     private int size;
 
+    /**
+     * Node is used for internal representation of the linked list.
+     * @param <T>
+     */
     private class Node<T> {
         private T data;
         private Node<T> next;
@@ -49,14 +54,53 @@ public class LinkedList<T> implements IList<T> {
     }
 
     /**
+     * In order iterator for an double linked list.
+     * @param <T>
+     */
+    private class LinkedListIterator<T> implements Iterator<T> {
+
+        Node<T> currentNode;
+
+        private LinkedListIterator() {
+            currentNode = (Node<T>) startNode;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return currentNode.getNext() != null;
+        }
+
+        @Override
+        public T next() {
+            if(this.hasNext()) {
+                T data = currentNode.getData();
+                currentNode = currentNode.getNext();
+                return data;
+            }
+
+            throw new NoSuchElementException("No more elements in linkedlist.");
+        }
+
+        @Override
+        public void remove() {
+            throw new UnsupportedOperationException("Remove operation not supported in Linkedlist Iterator");
+        }
+    }
+
+    /**
      *
      * Creates a new LinkedList
      */
-    public void LinkedList()
+    public LinkedList()
     {
         startNode = null;
         endNode = null;
         size = 0;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new LinkedListIterator<T>();
     }
 
     /**

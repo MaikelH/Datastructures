@@ -37,6 +37,7 @@ public class App {
 
        stack.pop();
 
+
        System.out.print(stack.printStack());
 
        System.out.println("\nPrint Stack again.");

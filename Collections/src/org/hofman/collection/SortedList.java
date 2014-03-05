@@ -3,6 +3,8 @@ package org.hofman.collection;
 import org.hofman.base.Function;
 import org.hofman.base.Predicate;
 
+import java.util.Iterator;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Maikel
@@ -17,6 +19,11 @@ public class SortedList<T extends Comparable> implements IList<T> {
 
     private AVLNode<T> root;
     private int size;
+
+    @Override
+    public Iterator<T> iterator() {
+        return null;
+    }
 
     private class AVLNode<T>
     {

@@ -5,4 +5,14 @@
  * Time: 10:38
  */
 public class Administratie {
+
+    // private HashMap<K, V> _studenten;
+
+    /* Studenten
+    public HashMap<K, V> Studenten() {
+        return _studenten;
+    }
+    */
+
+
 }
