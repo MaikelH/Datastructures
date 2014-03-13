@@ -15,18 +15,18 @@ import org.hofman.base.Predicate;
  */
 public class Stack<T> {
 
-    private Node<T> startElement;
+    private StackNode<T> startElement;
     private int size;
 
     /**
      * This represents a node in singlelinked list
      * @param <T> Object
      */
-    private class Node<T> {
+    private class StackNode<T> {
         private T data;
-        private Node<T> next;
+        private StackNode<T> next;
 
-        public Node(T Data) {
+        public StackNode(T Data) {
             data = Data;
         }
 
@@ -38,11 +38,11 @@ public class Stack<T> {
             this.data = data;
         }
 
-        public Node<T> getNext() {
+        public StackNode<T> getNext() {
             return next;
         }
 
-        public void setNext(Node<T> next) {
+        public void setNext(StackNode<T> next) {
             this.next = next;
         }
     }
@@ -62,10 +62,10 @@ public class Stack<T> {
      */
     public void push(T object)
     {
-        Node<T> node = new Node<T>(object);
-        node.setNext(startElement);
+        StackNode<T> stackNode = new StackNode<T>(object);
+        stackNode.setNext(startElement);
 
-        startElement = node;
+        startElement = stackNode;
         size++;
     }
 
@@ -76,7 +76,7 @@ public class Stack<T> {
     public T pop()
     {
         // Store first node in temp and retrieve new node
-        Node<T> tempElement = startElement;
+        StackNode<T> tempElement = startElement;
         startElement = tempElement.getNext();
 
         size--;
@@ -90,7 +90,7 @@ public class Stack<T> {
      */
     public boolean peek(T object)
     {
-       for(Node<T> tempElement = startElement; tempElement.getNext() != null; tempElement = tempElement.getNext() )
+       for(StackNode<T> tempElement = startElement; tempElement.getNext() != null; tempElement = tempElement.getNext() )
        {
             if(object.equals(tempElement.getData()))
             {
@@ -102,7 +102,7 @@ public class Stack<T> {
     }
 
     /**
-     * Returns the string representation of all the objects in the stack.
+     * Returns the string representation of all the elements in the stack.
      * @return String representation of the elements
      */
     public String printStack()
@@ -118,7 +118,7 @@ public class Stack<T> {
     }
 
     /**
-     * Prints only the elements that satisfies the given predicate {@code predicate}
+     * Returns an string representation of the elements in the stack satisfying the given predicate. {@code predicate}
      * @param predicate
      * @return String representation of the elements
      */
@@ -126,7 +126,7 @@ public class Stack<T> {
     {
         StringBuilder builder = new StringBuilder();
 
-        for(Node<T> tempElement = startElement; tempElement != null; tempElement = tempElement.getNext())
+        for(StackNode<T> tempElement = startElement; tempElement != null; tempElement = tempElement.getNext())
         {
             if(predicate.apply(tempElement.getData()))
             {

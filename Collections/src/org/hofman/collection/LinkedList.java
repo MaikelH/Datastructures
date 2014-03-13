@@ -2,8 +2,8 @@ package org.hofman.collection;
 
 import org.hofman.base.Function;
 import org.hofman.base.Predicate;
+import org.hofman.util.*;
 
-import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /**
@@ -57,7 +57,7 @@ public class LinkedList<T> implements IList<T> {
      * In order iterator for an double linked list.
      * @param <T>
      */
-    private class LinkedListIterator<T> implements Iterator<T> {
+    private class LinkedListIterator<T> implements org.hofman.util.Iterator<T> {
 
         Node<T> currentNode;
 

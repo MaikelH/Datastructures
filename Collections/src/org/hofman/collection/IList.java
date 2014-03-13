@@ -2,6 +2,7 @@ package org.hofman.collection;
 
 import org.hofman.base.Function;
 import org.hofman.base.Predicate;
+import org.hofman.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -10,7 +11,7 @@ import org.hofman.base.Predicate;
  * Time: 17:11
  * To change this template use File | Settings | File Templates.
  */
-public interface IList<T> extends ICollection<T>, Iterable<T> {
+public interface IList<T> extends ICollection<T>, org.hofman.util.Iterable<T> {
 
     /**
      * Last element in the collection.

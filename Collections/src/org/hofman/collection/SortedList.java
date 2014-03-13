@@ -2,8 +2,7 @@ package org.hofman.collection;
 
 import org.hofman.base.Function;
 import org.hofman.base.Predicate;
-
-import java.util.Iterator;
+import org.hofman.util.Iterator;
 
 /**
  * Created with IntelliJ IDEA.
@@ -20,6 +19,11 @@ public class SortedList<T extends Comparable> implements IList<T> {
     private AVLNode<T> root;
     private int size;
 
+    /**
+     * Returns an in order iterator for this collection.
+     *
+     * @return
+     */
     @Override
     public Iterator<T> iterator() {
         return null;
