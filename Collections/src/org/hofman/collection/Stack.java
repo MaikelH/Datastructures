@@ -137,4 +137,14 @@ public class Stack<T> {
 
         return builder.toString();
     }
+
+    public boolean isEmpty()
+    {
+        if(this.startElement == null)
+        {
+            return true;
+        }
+
+        return false;
+    }
 }

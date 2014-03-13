@@ -2,6 +2,7 @@ import org.hofman.collection.IList;
 import org.hofman.collection.LinkedList;
 import org.hofman.collection.Queue;
 import org.hofman.collection.SortedList;
+import org.hofman.util.Iterator;
 
 /**
  * Created with IntelliJ IDEA.
@@ -26,9 +27,9 @@ public class App {
         students[6] = new Student(1827374,"Maarten", 21, Geslacht.MAN);
         students[7] = new Student(1239399,"Lisa", 21, Geslacht.MAN);
 
-        TestList();
+        //TestList();
         //TestQueue();
-        //TestSortedList();
+        TestSortedList();
     }
 
     private static void TestList() {
@@ -109,6 +110,13 @@ public class App {
         // Remove one element
         list.remove(students[0]);
         System.out.println(list.toString());
+
+        System.out.println("Print all elements using iterator");
+        Iterator<Student> studentIterator = list.iterator();
+
+        while(studentIterator.hasNext()) {
+            System.out.println(studentIterator.next().toString());
+        }
     }
 
 }

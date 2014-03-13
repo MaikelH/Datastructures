@@ -5,6 +5,8 @@ import org.hofman.base.Predicate;
 import org.hofman.util.Iterator;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import java.util.NoSuchElementException;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Maikel
@@ -27,7 +29,7 @@ public class SortedList<T extends Comparable> implements IList<T> {
      */
     @Override
     public Iterator<T> iterator() {
-        return null;
+        return new SortedListIterator<T>();
     }
 
     private class AVLNode<T>
@@ -98,6 +100,48 @@ public class SortedList<T extends Comparable> implements IList<T> {
 
         public int getRightTreeHeight() {
             return (right == null) ? 0 : 1 + right.getRightTreeHeight();
+        }
+    }
+
+    private class SortedListIterator<T> implements Iterator<T> {
+        private AVLNode<T> tempNode;
+        private Stack<AVLNode<T>> parentStack;
+
+        private SortedListIterator()
+        {
+            this.tempNode = (AVLNode<T>) root;
+            this.parentStack = new Stack<AVLNode<T>>();
+        }
+
+        @Override
+        public boolean hasNext() {
+            return !(parentStack.isEmpty() && tempNode == null);
+        }
+
+        @Override
+        public T next() {
+            while (!parentStack.isEmpty() || tempNode != null)
+            {
+                if(tempNode != null)
+                {
+                    parentStack.push(tempNode);
+                    tempNode = tempNode.getLeft();
+                }
+                else
+                {
+                    tempNode = parentStack.pop();
+                    T data = tempNode.getData();
+                    tempNode = tempNode.getRight();
+                    return  data;
+                }
+            }
+
+            throw new NoSuchElementException();
+        }
+
+        @Override
+        public void remove() {
+            throw new UnsupportedOperationException("Remove not supported in iterator.");
         }
     }
 
@@ -351,7 +395,7 @@ public class SortedList<T extends Comparable> implements IList<T> {
     }
 
     /**
-     * A function to do right left rotation to bring the tree in balance again.
+     * A function to do left right rotation to bring the tree in balance again.
      *
      *    A           A                    C
      *     \           \                 /   \
@@ -524,7 +568,7 @@ public class SortedList<T extends Comparable> implements IList<T> {
      */
     private String inOrderTraversalPrint(AVLNode<T> node, Predicate<T> predicate)
     {
-        // TODO: Simple additions of an string are slow find something faster
+        // TODO: Simple additions of an string are pretty slow find something faster. Is ook for small collections.
         String temp = "";
         if(node.getLeft() != null)
         {
