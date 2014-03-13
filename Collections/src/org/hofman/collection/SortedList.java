@@ -103,6 +103,10 @@ public class SortedList<T extends Comparable> implements IList<T> {
         }
     }
 
+    /**
+     * In order iterator over an AVL tree.
+     * @param <T>  Type parameterS
+     */
     private class SortedListIterator<T> implements Iterator<T> {
         private AVLNode<T> tempNode;
         private Stack<AVLNode<T>> parentStack;
@@ -151,6 +155,7 @@ public class SortedList<T extends Comparable> implements IList<T> {
         size = 0;
     }
 
+
     /**
      * Returns the first element in the collection
      * @return Object
@@ -191,7 +196,7 @@ public class SortedList<T extends Comparable> implements IList<T> {
 
     @Override
     public void add(T object, int index) {
-        throw new NotImplementedException();
+        throw new UnsupportedOperationException("Can't insert a specific location in a sorted list.");
     }
 
     private AVLNode<T> tail(AVLNode<T> node)
@@ -212,17 +217,20 @@ public class SortedList<T extends Comparable> implements IList<T> {
      */
     @Override
     public T get(int Position) throws IndexOutOfBoundsException {
+        Iterator<T> it = this.iterator();
+        int count =  0;
 
-        if(Position >= this.size())
+        while(it.hasNext())
         {
-            throw new IndexOutOfBoundsException();
+            if(count == Position)
+            {
+                return it.next();
+            }
+
+            count++;
         }
 
-        // Get start node = head node
-        AVLNode<T> startNode = this.head(root);
-
-        // Do inorder traversal of the tree to get to the right index number
-        return null;
+        throw new IndexOutOfBoundsException();
     }
 
     @Override
@@ -237,8 +245,23 @@ public class SortedList<T extends Comparable> implements IList<T> {
 
     @Override
     public boolean remove(int index) {
+        Iterator<T> it = this.iterator();
+        int count =  0;
+
+        while(it.hasNext())
+        {
+            if(count == index)
+            {
+                return remove(it.next());
+            }
+
+            count++;
+        }
+
         return false;
     }
+
+
 
     /**
      * Add the object to the collection

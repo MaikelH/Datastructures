@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bcd8c5e-d843-4018-b394-cc0ab0ad4545" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Week2/src/App.java" afterPath="$PROJECT_DIR$/Week2/src/App.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Collections/src/org/hofman/collection/LinkedList.java" afterPath="$PROJECT_DIR$/Collections/src/org/hofman/collection/LinkedList.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Collections/src/org/hofman/collection/SortedList.java" afterPath="$PROJECT_DIR$/Collections/src/org/hofman/collection/SortedList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Collections/src/org/hofman/collection/Stack.java" afterPath="$PROJECT_DIR$/Collections/src/org/hofman/collection/Stack.java" />
     </list>
     <ignored path="Datastructuren.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -102,54 +101,7 @@
     <favorites_list name="Datastructuren" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="LinkedList.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Collections/src/org/hofman/collection/LinkedList.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="16" selection-start="1330" selection-end="1330" vertical-scroll-proportion="0.0" vertical-offset="265" max-vertical-offset="5474">
-              <folding>
-                <element signature="class#Node#0;class#LinkedList#0" expanded="false" />
-                <element signature="method#average#0;class#LinkedList#0" expanded="false" />
-                <element signature="method#where#0;class#LinkedList#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Stack.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Collections/src/org/hofman/collection/Stack.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="147" column="21" selection-start="3443" selection-end="3443" vertical-scroll-proportion="0.0" vertical-offset="1730" max-vertical-offset="2431">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SortedList.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Collections/src/org/hofman/collection/SortedList.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="134" column="0" selection-start="3186" selection-end="3186" vertical-scroll-proportion="0.0" vertical-offset="917" max-vertical-offset="8857">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="class#AVLNode#0;class#SortedList#0" expanded="false" />
-                <element signature="method#find#0;class#SortedList#0" expanded="false" />
-                <element signature="e#13358#13498#0" expanded="true" />
-                <element signature="e#13487#13488#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="App.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Week2/src/App.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="114" column="0" selection-start="3494" selection-end="3494" vertical-scroll-proportion="0.7079038" vertical-offset="1458" max-vertical-offset="2108">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -194,10 +146,10 @@
         <option value="$PROJECT_DIR$/Collections/src/org/hofman/collection/Queue.java" />
         <option value="$PROJECT_DIR$/Week3/src/Student.java" />
         <option value="$PROJECT_DIR$/Datastructuren_week1/src/Week1/App.java" />
-        <option value="$PROJECT_DIR$/Collections/src/org/hofman/collection/LinkedList.java" />
         <option value="$PROJECT_DIR$/Collections/src/org/hofman/collection/Stack.java" />
         <option value="$PROJECT_DIR$/Week2/src/App.java" />
         <option value="$PROJECT_DIR$/Collections/src/org/hofman/collection/SortedList.java" />
+        <option value="$PROJECT_DIR$/Collections/src/org/hofman/collection/LinkedList.java" />
       </list>
     </option>
   </component>
@@ -845,34 +797,34 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2669633" sideWeight="0.48772678" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32777777" sideWeight="0.4893855" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959914" sideWeight="0.7488839" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959914" sideWeight="0.7488839" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28666666" sideWeight="0.54302514" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33888888" sideWeight="0.52561367" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15339391" sideWeight="0.4375" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33482143" sideWeight="0.4849162" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32444444" sideWeight="0.45090714" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924107" sideWeight="0.49599144" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21246007" sideWeight="0.2236842" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21246007" sideWeight="0.22444445" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21246007" sideWeight="0.7763158" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32444444" sideWeight="0.470651" order="2" side_tool="false" content_ui="tabs" x="-170" y="579" width="1871" height="250" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21246007" sideWeight="0.77555555" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32444444" sideWeight="0.470651" order="2" side_tool="false" content_ui="tabs" x="-170" y="579" width="1871" height="250" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="SBT Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1640625" sideWeight="0.48957777" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -984,8 +936,8 @@
             <element signature="imports" expanded="true" />
             <element signature="class#AVLNode#0;class#SortedList#0" expanded="false" />
             <element signature="method#find#0;class#SortedList#0" expanded="false" />
-            <element signature="e#13358#13498#0" expanded="true" />
-            <element signature="e#13487#13488#0" expanded="true" />
+            <element signature="e#13739#13879#0" expanded="true" />
+            <element signature="e#13868#13869#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1042,8 +994,8 @@
             <element signature="imports" expanded="true" />
             <element signature="class#AVLNode#0;class#SortedList#0" expanded="false" />
             <element signature="method#find#0;class#SortedList#0" expanded="false" />
-            <element signature="e#13358#13498#0" expanded="true" />
-            <element signature="e#13487#13488#0" expanded="true" />
+            <element signature="e#13739#13879#0" expanded="true" />
+            <element signature="e#13868#13869#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1183,15 +1135,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Collections/src/org/hofman/collection/IList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="70" selection-start="1544" selection-end="1544" vertical-scroll-proportion="0.91237116" vertical-offset="472" max-vertical-offset="1173">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Week2/src/Student.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="0" selection-start="212" selection-end="212" vertical-scroll-proportion="0.29209623" vertical-offset="0" max-vertical-offset="816">
@@ -1243,19 +1186,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Collections/src/org/hofman/collection/Queue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="161" column="27" selection-start="3490" selection-end="3490" vertical-scroll-proportion="0.39702517" vertical-offset="605" max-vertical-offset="1479">
-          <folding>
-            <element signature="class#Node#0;class#Queue#0" expanded="false" />
-            <element signature="method#add#0;class#Queue#0" expanded="false" />
-            <element signature="method#remove#0;class#Queue#0" expanded="false" />
-            <element signature="method#contains#0;class#Queue#0" expanded="false" />
-            <element signature="method#destroy#0;class#Queue#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Collections/src/org/hofman/collection/ICollection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="14" selection-start="572" selection-end="594" vertical-scroll-proportion="-0.05154639" vertical-offset="438" max-vertical-offset="1020">
@@ -1263,16 +1193,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Collections/src/org/hofman/collection/Stack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="147" column="21" selection-start="3443" selection-end="3443" vertical-scroll-proportion="0.0" vertical-offset="1730" max-vertical-offset="2431">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Collections/src/org/hofman/collection/LinkedList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="16" selection-start="1330" selection-end="1330" vertical-scroll-proportion="0.0" vertical-offset="265" max-vertical-offset="5474">
+        <state line="377" column="1" selection-start="8562" selection-end="8562" vertical-scroll-proportion="0.8832952" vertical-offset="4583" max-vertical-offset="5457">
           <folding>
             <element signature="class#Node#0;class#LinkedList#0" expanded="false" />
             <element signature="method#average#0;class#LinkedList#0" expanded="false" />
@@ -1283,21 +1206,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Collections/src/org/hofman/collection/SortedList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="0" selection-start="3186" selection-end="3186" vertical-scroll-proportion="0.0" vertical-offset="917" max-vertical-offset="8857">
+        <state line="621" column="1" selection-start="15175" selection-end="15175" vertical-scroll-proportion="0.8832952" vertical-offset="8357" max-vertical-offset="9231">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="class#AVLNode#0;class#SortedList#0" expanded="false" />
             <element signature="method#find#0;class#SortedList#0" expanded="false" />
-            <element signature="e#13358#13498#0" expanded="true" />
-            <element signature="e#13487#13488#0" expanded="true" />
+            <element signature="e#13739#13879#0" expanded="true" />
+            <element signature="e#13868#13869#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Collections/src/org/hofman/collection/Stack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="147" column="21" selection-start="3443" selection-end="3443" vertical-scroll-proportion="0.82494277" vertical-offset="1557" max-vertical-offset="2431">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Collections/src/org/hofman/collection/IList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="70" selection-start="1544" selection-end="1544" vertical-scroll-proportion="0.805492" vertical-offset="299" max-vertical-offset="1173">
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Week2/src/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="114" column="0" selection-start="3494" selection-end="3494" vertical-scroll-proportion="0.7079038" vertical-offset="1458" max-vertical-offset="2108">
+        <state line="113" column="19" selection-start="3448" selection-end="3448" vertical-scroll-proportion="0.708238" vertical-offset="1234" max-vertical-offset="2108">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Collections/src/org/hofman/collection/Queue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="161" column="5" selection-start="3490" selection-end="3490" vertical-scroll-proportion="0.39702517" vertical-offset="605" max-vertical-offset="1479">
+          <folding>
+            <element signature="class#Node#0;class#Queue#0" expanded="false" />
+            <element signature="method#add#0;class#Queue#0" expanded="false" />
+            <element signature="method#remove#0;class#Queue#0" expanded="false" />
+            <element signature="method#contains#0;class#Queue#0" expanded="false" />
+            <element signature="method#destroy#0;class#Queue#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
