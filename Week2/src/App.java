@@ -1,3 +1,4 @@
+import org.hofman.collection.IList;
 import org.hofman.collection.LinkedList;
 import org.hofman.collection.Queue;
 import org.hofman.collection.SortedList;
@@ -25,13 +26,13 @@ public class App {
         students[6] = new Student(1827374,"Maarten", 21, Geslacht.MAN);
         students[7] = new Student(1239399,"Lisa", 21, Geslacht.MAN);
 
-        //TestList();
+        TestList();
         //TestQueue();
-        TestSortedList();
+        //TestSortedList();
     }
 
     private static void TestList() {
-        LinkedList<Student> list = new LinkedList<Student>();
+        IList<Student> list = new LinkedList<Student>();
 
         list.add(students[0]);
         list.add(students[1]);

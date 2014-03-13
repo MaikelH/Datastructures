@@ -3,6 +3,7 @@ package org.hofman.collection;
 import org.hofman.base.Function;
 import org.hofman.base.Predicate;
 import org.hofman.util.Iterator;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
  * Created with IntelliJ IDEA.
@@ -144,6 +145,11 @@ public class SortedList<T extends Comparable> implements IList<T> {
         return null;
     }
 
+    @Override
+    public void add(T object, int index) {
+        throw new NotImplementedException();
+    }
+
     private AVLNode<T> tail(AVLNode<T> node)
     {
         while (node.getRight() != null)
@@ -183,6 +189,11 @@ public class SortedList<T extends Comparable> implements IList<T> {
     @Override
     public IList<T> where(Predicate<T> predicate) {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public boolean remove(int index) {
+        return false;
     }
 
     /**

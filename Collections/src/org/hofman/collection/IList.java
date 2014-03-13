@@ -26,6 +26,13 @@ public interface IList<T> extends ICollection<T>, org.hofman.util.Iterable<T> {
     T tail();
 
     /**
+     * Adds a object to the collection at the specified index.
+     * @param object
+     * @param index
+     */
+    void add(T object, int index);
+
+    /**
      * Returns the element at the specified position.
      * @param Position
      * @return
@@ -46,4 +53,11 @@ public interface IList<T> extends ICollection<T>, org.hofman.util.Iterable<T> {
      * @return IList<T> All values for which the predicate is true.
      */
     IList<T> where(Predicate<T> predicate);
+
+    /**
+     * Removes the object at the specified index. The object at index + 1 will then be at index.
+     * @param index
+     * @return True if object is succesfully removed, false otherwise.
+     */
+    boolean remove(int index);
 }

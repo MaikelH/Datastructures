@@ -49,4 +49,6 @@ public interface ICollection<T> {
      * @return
      */
     public boolean isEmpty();
+
+
 }
