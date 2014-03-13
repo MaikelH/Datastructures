@@ -109,7 +109,7 @@ public class Stack<T> {
     {
         Predicate<T> predicate = new Predicate<T>() {
             @Override
-            public boolean apply(T object) {
+            public Boolean apply(T object) {
                 return true;
             }
         };

@@ -72,7 +72,7 @@ public class App {
         System.out.println(queue.toString());
 
         System.out.println("* Dequeue one item");
-        queue.remove();
+        queue.dequeue();
         System.out.println(queue.toString());
 
         System.out.println("* Search for Student");

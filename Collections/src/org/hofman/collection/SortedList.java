@@ -498,7 +498,7 @@ public class SortedList<T extends Comparable> implements IList<T> {
     {
         return toString(new Predicate<T>() {
             @Override
-            public boolean apply(T object) {
+            public Boolean apply(T object) {
                 return true;
             }
         });

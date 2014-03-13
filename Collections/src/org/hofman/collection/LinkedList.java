@@ -321,7 +321,7 @@ public class LinkedList<T> implements IList<T> {
     {
         return toString(new Predicate<T>() {
             @Override
-            public boolean apply(T object) {
+            public Boolean apply(T object) {
                 return true;
             }
         });

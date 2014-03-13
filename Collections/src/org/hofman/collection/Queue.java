@@ -108,7 +108,7 @@ public class Queue<T> implements ICollection<T> {
         return false;
     }
 
-    public T remove()
+    public T dequeue()
     {
         if(size > 0)
         {
@@ -162,7 +162,7 @@ public class Queue<T> implements ICollection<T> {
     {
         return toString(new Predicate<T>() {
             @Override
-            public boolean apply(T object) {
+            public Boolean apply(T object) {
                 return true;
             }
         });

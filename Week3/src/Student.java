@@ -125,14 +125,14 @@ public class Student implements Comparable {
         {
             return vakken.where(new Predicate<Vak>() {
                 @Override
-                public boolean apply(Vak object) {
+                public Boolean apply(Vak object) {
                     return object.getCijfer() != -1;
                 }
             });
         }
         return vakken.where(new Predicate<Vak>() {
             @Override
-            public boolean apply(Vak object) {
+            public Boolean apply(Vak object) {
                 return object.getCijfer() != 1 && object.getJaar() == jaar;
             }
         });
@@ -161,7 +161,7 @@ public class Student implements Comparable {
     public double gemiddelde() {
         return this.vakken.where(new Predicate<Vak>() {
             @Override
-            public boolean apply(Vak object) {return object.getCijfer() != -1;}
+            public Boolean apply(Vak object) {return object.getCijfer() != -1;}
         }).average(new Function<Vak, Double>() {
             @Override
             public Double apply(Vak input) {

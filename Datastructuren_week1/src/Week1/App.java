@@ -65,7 +65,7 @@ public class App {
 
        System.out.println(stack.printStack(new Predicate<Student>() {
            @Override
-           public boolean apply(Student object) {
+           public Boolean apply(Student object) {
                if(object.getGeslacht() == Geslacht.VROUW)
                {
                    return true;

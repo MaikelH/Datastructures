@@ -12,12 +12,13 @@ package org.hofman.base;
  *
  * @param <T> Any java object
  */
-public interface Predicate<T> {
+public interface Predicate<T> extends Function<T, Boolean>  {
 
     /**
      * Returns the result of the computation performed on object.
      * @param object
      * @return boolean
      */
-    public boolean apply(T object);
+    public Boolean apply(T object);
 }
+
